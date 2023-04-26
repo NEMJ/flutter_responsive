@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/constants.dart';
+import 'package:flutter_responsive/util/my_tile.dart';
+
+import '../util/my_box.dart';
 
 class MobileScaffold extends StatefulWidget {
   const MobileScaffold({super.key});
@@ -27,18 +30,21 @@ class _MobileScaffoldState extends State<MobileScaffold> {
                 gridDelegate:
                   const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      color: Colors.blue,
-                    ),
-                  );
+                  return const MyBox();
                 },
               ),
             ),
-          )
+          ),
 
           // tiles below it
+          Expanded(
+            child: ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return const MyTile();
+              }
+            ),
+          ),
         ]
       ),
     );
